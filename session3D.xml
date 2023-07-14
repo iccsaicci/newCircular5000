@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <NEKTAR>
     <EXPANSIONS>
-        <E COMPOSITE="C[200,201]" NUMMODES="3" TYPE="MODIFIED" FIELDS="u,v,w" />
-        <E COMPOSITE="C[200,201]" NUMMODES="2" TYPE="MODIFIEDQUADPLUS1" FIELDS="p" />
+        <E COMPOSITE="C[200,201]" NUMMODES="5" TYPE="MODIFIED" FIELDS="u,v,w" />
+        <E COMPOSITE="C[200,201]" NUMMODES="4" TYPE="MODIFIEDQUADPLUS1" FIELDS="p" />
     </EXPANSIONS>
     <CONDITIONS>
         <SOLVERINFO>
@@ -33,8 +33,8 @@
 
     <PARAMETERS>
         <P> TimeStep      =    1.0e-3                                       </P> <!-- Time step -->   
-        <P> NumSteps      =    30000                                        </P> <!-- Number of step -->
-        <P> IO_CheckSteps =    5000                                        </P> <!-- Number of step to write the intermediate results -->
+        <P> NumSteps      =    15000                                        </P> <!-- Number of step -->
+        <P> IO_CheckSteps =    1000                                        </P> <!-- Number of step to write the intermediate results -->
         <P> IO_InfoSteps  =    100                                        </P> <!-- Number of step to print information -->
         <P> IO_CFLSteps   =    100                                        </P> <!-- Number of step to print CFL number  -->
         <P> Re            = 5000                                   </P>
@@ -84,10 +84,7 @@
       
         <!-- Specify the initial condition -->
         <FUNCTION NAME="InitialConditions">
-        <E VAR="u" VALUE="U0" />
-        <E VAR="v" VALUE="V0" />
-        <E VAR="w" VALUE="W0" />
-        <E VAR="p" VALUE="0.0" />     
+        <F VAR="u,v,w,p" FILE="circular1_6.rst" />     
         </FUNCTION>
     </CONDITIONS>
     
